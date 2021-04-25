@@ -8,11 +8,11 @@ module "deploy-<COMPONENT NAME>" {
 
   lxd_remote                 = local.lxd_remote_name
   host_external_ipv4_address = local.lxd_host_public_ipv4_address
-  container_image            = join("-", [ "<PROJECT NAME>", "<COMPONENT NAME>", var.image_version ])
-  container_name             = "<COMPONENT NAME>"
+  container_image            = join("-", [ "PROJECT NAME", "COMPONENT NAME", var.image_version ])
+  container_name             = "COMPONENT NAME"
   container_profiles         = ["default"]
-  container_network          = "<LXD NETWORK TO USE>"
-  container_ipv4_address     = join(".", [ local.<LXD NETWORK TO USE>, "10" ])
+  container_network          = "LXD NETWORK TO USE"
+  container_ipv4_address     = join(".", [ local.LXD_NETWORK_TO_USE, "10" ])
   container_cloud-init       = file("cloud-init/cloud-TEMPLATE.yml")
 
   # OPTIONAL PROXIES - THE FOLLOWING AS EXAMPLE
