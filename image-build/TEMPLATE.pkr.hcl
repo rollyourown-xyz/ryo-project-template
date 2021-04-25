@@ -36,7 +36,7 @@ locals {
   build_container_name = "packer-lxd-build"
 
   build_inventory_file = "${abspath(path.root)}/playbooks/inventory.yml"
-  build_playbook_file  = "${abspath(path.root)}/playbooks/provision-certbot.yml"
+  build_playbook_file  = "${abspath(path.root)}/playbooks/provision-TEMPLATE.yml"
   build_extra_vars     = ""
 }
 
