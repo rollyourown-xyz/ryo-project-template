@@ -1,3 +1,8 @@
 #!/bin/sh
-git submodule init
-git submodule update
+
+## Common to all projects - generic host setup repository
+git submodule add https://git.rollyourown.xyz/ryo-projects/ryo-host-setup-generic
+
+## Project specific submodules
+#git submodule add https://git.rollyourown.xyz/ryo-projects/<PROJECT MODULE>
+#git submodule add https://git.rollyourown.xyz/ryo-projects/<PROJECT MODULE>
