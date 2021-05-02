@@ -17,13 +17,13 @@ variable "version" {
 
 # Name for the container for which the image is to be built
 locals {
-  project_name = "<PROJECT NAME>"
+  project_name = yamldecode(file("${abspath(path.root)}/../configuration/configuration.yml"))["project_name"]
   service_name = "<PROJECT COMPONENT NAME>"
 }
 
 # Variables from configuration files
 locals {
-  remote_lxd_host = yamldecode(file("${abspath(path.root)}/../configuration/configuration.yml"))["host_hostname"]
+  remote_lxd_host = yamldecode(file("${abspath(path.root)}/../configuration/configuration.yml"))["project_name"]
 }
 
 ## Parameters for the build process

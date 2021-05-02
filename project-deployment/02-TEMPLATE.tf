@@ -8,7 +8,7 @@ module "deploy-<COMPONENT NAME>" {
 
   lxd_remote                 = local.lxd_remote_name
   host_external_ipv4_address = local.lxd_host_public_ipv4_address
-  container_image            = join("-", [ "PROJECT NAME", "COMPONENT NAME", var.image_version ])
+  container_image            = join("-", [ local.project_name, "COMPONENT NAME", var.image_version ])
   container_name             = "COMPONENT NAME"
   container_profiles         = ["default"]
   container_network          = "LXD NETWORK TO USE"
