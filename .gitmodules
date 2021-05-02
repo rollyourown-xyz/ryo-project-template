@@ -1,7 +1,8 @@
 # Common to all projects - generic host setup repository
 [submodule "modules/ryo-host-setup-generic"]
 	path = modules/ryo-host-setup-generic
-	url = https://github.com/rollyourown-xyz/ryo-host-setup-generic
+	#url = https://github.com/rollyourown-xyz/ryo-host-setup-generic
+    url = https://git.rollyourown.xyz/ryo-projects/ryo-host-setup-generic
 
 # Project specific submodules
 #[submodule "modules/<MODULE NAME>"]
