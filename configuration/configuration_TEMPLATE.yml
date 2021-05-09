@@ -73,12 +73,10 @@ wireguard_address_network_part: "10.0.1"
 # Leave the following settings as default if this is the first project managed
 # by the control node. Change if other projects are already deployed on the control node
 # Make sure that these settings do not overlap with any other project - e.g. if
-# another project managed by the control node uses "10.10.0", "10.10.10", "10.10.11" and "10.10.12", then
-# set these to "10.11.0", "10.11.10", "10.11.11" and "10.11.12"
+# another project managed by the control node uses "10.10.0", "10.10.10", then
+# set these to "10.11.0", "10.11.10"
 lxd_br0_network_part: "10.10.0"
-lxd_dmz_network_part: "10.10.10"
-lxd_frontend_network_part: "10.10.11"
-lxd_backend_network_part: "10.10.12"
+lxd_project_network_part: "10.10.10"
 
 # Change according to the available storage on the host. 
 # Set to leave at least 4GB for the operating system
