@@ -17,13 +17,13 @@ variable "version" {
 
 # Name for the container for which the image is to be built
 locals {
-  project_name = yamldecode(file("${abspath(path.root)}/../configuration/configuration.yml"))["project_name"]
+  project_id = yamldecode(file("${abspath(path.root)}/../configuration/configuration.yml"))["project_id"]
   service_name = "<PROJECT COMPONENT NAME>"
 }
 
 # Variables from configuration files
 locals {
-  remote_lxd_host = yamldecode(file("${abspath(path.root)}/../configuration/configuration.yml"))["project_name"]
+  remote_lxd_host = yamldecode(file("${abspath(path.root)}/../configuration/configuration.yml"))["project_id"]
 }
 
 ## Parameters for the build process
@@ -45,11 +45,11 @@ locals {
 
 # Computed parameters for the output image
 locals {
-  output_image_name        = "${ join("-", [ local.project_name, local.service_name, var.version ]) }"
+  output_image_name        = "${ join("-", [ local.project_id, local.service_name, var.version ]) }"
   output_image_description = "${ join(" ", [ 
       join(":", [ local.build_image_os , local.build_image_release ]),
       "image for",
-      local.project_name,
+      local.project_id,
       local.service_name,
       "- v",
       var.version

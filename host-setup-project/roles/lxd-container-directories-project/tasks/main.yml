@@ -1,5 +1,5 @@
 ---
-## The generic directory /var/containers/{{ project_name }}
+## The generic directory /var/containers/{{ project_id }}
 ## for LXD container persistent storage has already been
 ## set up by generic host-setup playbooks
 ## Further project-specific container directories should be
@@ -14,6 +14,6 @@
 # Example
 # - name: Create a directory for <ABC> container mounts
 #   file:
-#     path: "/var/containers/{{ project_name }}/<ABC>"
+#     path: "/var/containers/{{ project_id }}/<ABC>"
 #     state: directory
 #     mode: '0755'

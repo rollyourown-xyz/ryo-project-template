@@ -8,8 +8,8 @@
 
 #   lxd_remote                 = local.lxd_remote_name
 #   host_external_ipv4_address = local.lxd_host_public_ipv4_address
-#   container_image            = join("-", [ local.project_name, "COMPONENT_NAME", var.image_version ])
-#   container_name             = join("-", [ local.project_name, "COMPONENT_NAME" ])
+#   container_image            = join("-", [ local.project_id, "COMPONENT_NAME", var.image_version ])
+#   container_name             = join("-", [ local.project_id, "COMPONENT_NAME" ])
 #   container_profiles         = ["default"]
 #   container_network          = "LXD NETWORK TO USE"
 #   container_ipv4_address     = join(".", [ local.LXD_NETWORK_TO_USE, "10" ])
@@ -24,7 +24,7 @@
 
 #   # OPTIONAL CONTAINER MOUNTS - THE FOLLOWING AS EXAMPLE
 #   container_mounts = [
-#     {name = "<NAME>", host_path = "/var/containers/<PROJECT_NAME>/<SUBDIRECTORY>", mount_path = "<PATH>", mount_readonly = true}
+#     {name = "<NAME>", host_path = "/var/containers/<PROJECT_ID>/<SUBDIRECTORY>", mount_path = "<PATH>", mount_readonly = true}
 #   ]
 # }
 
@@ -37,8 +37,8 @@
 
 #   lxd_remote                 = local.lxd_remote_name
 #   host_external_ipv4_address = local.lxd_host_public_ipv4_address
-#   container_image            = join("-", [ local.project_name, "COMPONENT_NAME", var.image_version ])
-#   container_name             = join("-", [ local.project_name, "COMPONENT_NAME" ])
+#   container_image            = join("-", [ local.project_id, "COMPONENT_NAME", var.image_version ])
+#   container_name             = join("-", [ local.project_id, "COMPONENT_NAME" ])
 #   container_profiles         = ["default"]
 #   container_network          = "LXD NETWORK TO USE"
 #   container_ipv4_address     = join(".", [ local.LXD_NETWORK_TO_USE, "10" ])
@@ -58,7 +58,7 @@
 
 #   # OPTIONAL CONTAINER MOUNTS - THE FOLLOWING AS EXAMPLE
 #   container_mounts = [
-#     {name = "<NAME>", host_path = "/var/containers/<PROJECT_NAME>/<SUBDIRECTORY>", mount_path = "<PATH>", mount_readonly = true}
+#     {name = "<NAME>", host_path = "/var/containers/<PROJECT_ID>/<SUBDIRECTORY>", mount_path = "<PATH>", mount_readonly = true}
 #   ]
 # }
 
@@ -70,8 +70,8 @@
 #   source = "./modules/deploy-container-dynamic-ip"
 
 #   lxd_remote                 = local.lxd_remote_name
-#   container_image            = join("-", [ local.project_name, "COMPONENT_NAME", var.image_version ])
-#   container_name             = join("-", [ local.project_name, "COMPONENT_NAME" ])
+#   container_image            = join("-", [ local.project_id, "COMPONENT_NAME", var.image_version ])
+#   container_name             = join("-", [ local.project_id, "COMPONENT_NAME" ])
 #   container_profiles         = ["default"]
 #   container_network          = "LXD NETWORK TO USE"
 
@@ -85,7 +85,7 @@
 
 #   # OPTIONAL CONTAINER MOUNTS - THE FOLLOWING AS EXAMPLE
 #   container_mounts = [
-#     {name = "<NAME>", host_path = "/var/containers/<PROJECT_NAME>/<SUBDIRECTORY>", mount_path = "<PATH>", mount_readonly = true}
+#     {name = "<NAME>", host_path = "/var/containers/<PROJECT_ID>/<SUBDIRECTORY>", mount_path = "<PATH>", mount_readonly = true}
 #   ]
 # }
 
@@ -97,8 +97,8 @@
 #   source = "./modules/deploy-container-dynamic-ip"
 
 #   lxd_remote                 = local.lxd_remote_name
-#   container_image            = join("-", [ local.project_name, "COMPONENT_NAME", var.image_version ])
-#   container_name             = join("-", [ local.project_name, "COMPONENT_NAME" ])
+#   container_image            = join("-", [ local.project_id, "COMPONENT_NAME", var.image_version ])
+#   container_name             = join("-", [ local.project_id, "COMPONENT_NAME" ])
 #   container_profiles         = ["default"]
 #   container_network          = "LXD NETWORK TO USE"
 
@@ -117,6 +117,6 @@
 
 #   # OPTIONAL CONTAINER MOUNTS - THE FOLLOWING AS EXAMPLE
 #   container_mounts = [
-#     {name = "<NAME>", host_path = "/var/containers/<PROJECT_NAME>/<SUBDIRECTORY>", mount_path = "<PATH>", mount_readonly = true}
+#     {name = "<NAME>", host_path = "/var/containers/<PROJECT_ID>/<SUBDIRECTORY>", mount_path = "<PATH>", mount_readonly = true}
 #   ]
 # }
