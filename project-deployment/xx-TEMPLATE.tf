@@ -165,6 +165,10 @@
 #     domain     = {host = local.project_domain_name},
 #     domain-www = {host = join("", [ "www.", local.project_domain_name])}
 #   }
+
+#   haproxy_host_path_acls = {
+#     domain-admin = {host = local.project_domain_name, path = "/admin"},
+#   }
 # }
 
 
@@ -172,6 +176,8 @@
 #   source = "./modules/deploy-haproxy-configuration"
 
 #   depends_on = [ module.deploy-<COMPONENT_NAME>-haproxy-backend-service ]
+
+#   haproxy_acl_denys = [ "domain-admin" ]
 
 #   haproxy_acl_use-backends = {
 #     domain     = {backend_service = join("-", [ local.project_id, "<COMPONENT_NAME>" ])},
