@@ -1,8 +1,8 @@
-## TERRAFORM FILE EXAMPLES FOR DEPLOYMENT OF A COMPONENT
+## TERRAFORM FILE EXAMPLES FOR DEPLOYMENT OF PROJECT COMPONENTS
 
 # Deployment of certificate domains for certbot for the project
 ###############################################################
-# module "<COMPONENT_NAME>-cert-domains" {
+# module "deploy-<PROJECT_ID>-cert-domains" {
 #   source = "./modules/deploy-cert-domains"
 
 #   depends_on = [ module.deploy-consul ]
@@ -147,19 +147,19 @@
 # Deployment of load balancer / TLS proxy configuration for <COMPONENT_NAME>
 ############################################################################
 
-# module "deploy-<COMPONENT_NAME>-haproxy-backend-service" {
+# module "deploy-<PROJECT_ID>-haproxy-backend-service" {
 #   source = "./modules/deploy-haproxy-backend-services"
 
 #   depends_on = [ module.deploy-consul ]
 
-#   non_ssl_backend_services = [ join("-", [ local.project_id, "<COMPONENT_NAME>" ]) ]
+#   non_ssl_backend_services = [ join("-", [ local.project_id, "<SERVICE_NAME>" ]) ]
 # }
 
 
-# module "deploy-<COMPONENT_NAME>-haproxy-acl-configuration" {
+# module "deploy-<PROJECT_ID>-haproxy-acl-configuration" {
 #   source = "./modules/deploy-haproxy-configuration"
 
-#   depends_on = [ module.deploy-<COMPONENT_NAME>-haproxy-backend-service ]
+#   depends_on = [ module.deploy-<PROJECT_ID>-haproxy-backend-service ]
 
 #   haproxy_host_only_acls = {
 #     domain     = {host = local.project_domain_name},
@@ -172,20 +172,20 @@
 # }
 
 
-# module "deploy-<COMPONENT_NAME>-haproxy-backend-configuration" {
+# module "deploy-<PROJECT_ID>-haproxy-backend-configuration" {
 #   source = "./modules/deploy-haproxy-configuration"
 
-#   depends_on = [ module.deploy-<COMPONENT_NAME>-haproxy-backend-service ]
+#   depends_on = [ module.deploy-<PROJECT_ID>-haproxy-backend-service ]
 
 #   haproxy_acl_denys = [ "domain-admin" ]
 
 #   haproxy_tcp_listeners = {
-#     22   = {backend_service = join("-", [ local.project_id, "<COMPONENT_NAME>" ])},
-#     3022 = {backend_service = join("-", [ local.project_id, "<COMPONENT_NAME>" ])}
+#     22   = {backend_service = join("-", [ local.project_id, "<SERVICE_NAME>" ])},
+#     3022 = {backend_service = join("-", [ local.project_id, "<SERVICE_NAME>" ])}
 #   }
 
 #   haproxy_acl_use-backends = {
-#     domain     = {backend_service = join("-", [ local.project_id, "<COMPONENT_NAME>" ])},
-#     domain-www = {backend_service = join("-", [ local.project_id, "<COMPONENT_NAME>" ])}
+#     domain     = {backend_service = join("-", [ local.project_id, "<SERVICE_NAME>" ])},
+#     domain-www = {backend_service = join("-", [ local.project_id, "<SERVICE_NAME>" ])}
 #   }
 # }
