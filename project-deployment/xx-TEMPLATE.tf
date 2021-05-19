@@ -179,6 +179,11 @@
 
 #   haproxy_acl_denys = [ "domain-admin" ]
 
+#   haproxy_tcp_listeners = {
+#     22   = {backend_service = join("-", [ local.project_id, "<COMPONENT_NAME>" ])},
+#     3022 = {backend_service = join("-", [ local.project_id, "<COMPONENT_NAME>" ])}
+#   }
+
 #   haproxy_acl_use-backends = {
 #     domain     = {backend_service = join("-", [ local.project_id, "<COMPONENT_NAME>" ])},
 #     domain-www = {backend_service = join("-", [ local.project_id, "<COMPONENT_NAME>" ])}
