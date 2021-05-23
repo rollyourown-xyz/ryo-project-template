@@ -12,7 +12,7 @@ terraform {
 }
 
 provider "lxd" {
-  # Remote configuration needed with LXD snap, even if remotes have been defined out of band via 'lxc remote add'
+  
   generate_client_certificates = true
   accept_remote_certificate    = true
 
