@@ -9,10 +9,6 @@
 # REQUIRED Configuration
 #-----------------------
 
-# The project ID must be 15 characters or less and should be unique amongst
-# projects deployed on the same host
-project_id: <PROJECT ID>
-
 # Basic host configuration
 #-------------------------
 
@@ -41,7 +37,11 @@ host_non_root_user_password: <PASSWORD>
 # Project configuration
 #----------------------
 
-## This section will contain settings specific to the project. The following are
+# The project ID must be 15 characters or less and should be unique amongst
+# projects
+project_id: <PROJECT ID>
+
+## The following will contain settings specific to the project. The following are
 ## examples
 
 # Set the domain to be used for the project. The DNS A record for the project's 
