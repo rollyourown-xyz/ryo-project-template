@@ -6,9 +6,22 @@
 ## Input variables
 ##
 
+# Specify the host_id for which to build the image
+variable "host_id" {
+  description = "Mandatory: The host_id for which to build the image."
+  type        = string
+}
+
 # Specify the version number of the image to be built
 variable "version" {
   description = "Mandatory: The version identifier to be added to the output image name."
+  type        = string
+}
+
+# Other input variables
+# Here, grav_version as an example
+variable "grav_version" {
+  description = "Mandatory: The grav version to use in the image build."
   type        = string
 }
 
@@ -17,16 +30,17 @@ variable "version" {
 
 # Name for the container for which the image is to be built
 locals {
-  project_id = yamldecode(file("${abspath(path.root)}/../configuration/configuration.yml"))["project_id"]
   service_name = "<PROJECT COMPONENT NAME>"
 }
 
 # Variables from configuration files
 locals {
-  remote_lxd_host = yamldecode(file("${abspath(path.root)}/../configuration/configuration.yml"))["project_id"]
+  project_id      = yamldecode(file("${abspath(path.root)}/../configuration/configuration_${var.host_id}.yml"))["project_id"]
+  remote_lxd_host = var.host_id
 }
 
 ## Parameters for the build process
+## Here, grav_version as an example
 ##
 
 locals {
@@ -37,7 +51,7 @@ locals {
 
   build_inventory_file = "${abspath(path.root)}/playbooks/inventory.yml"
   build_playbook_file  = "${abspath(path.root)}/playbooks/provision-TEMPLATE.yml"
-  build_extra_vars     = ""
+  build_extra_vars     = "host_id=${var.host_id} grav_version=${var.grav_version}"
 }
 
 ## Computed local variables
@@ -49,7 +63,6 @@ locals {
   output_image_description = "${ join(" ", [ 
       join(":", [ local.build_image_os , local.build_image_release ]),
       "image for",
-      local.project_id,
       local.service_name,
       "- v",
       var.version

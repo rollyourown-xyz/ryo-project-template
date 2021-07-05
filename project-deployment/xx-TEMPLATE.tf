@@ -1,11 +1,49 @@
 ## TERRAFORM FILE EXAMPLES FOR DEPLOYMENT OF PROJECT COMPONENTS
 
-# Deployment of certificate domains for certbot for the project
-###############################################################
-# module "deploy-<PROJECT_ID>-cert-domains" {
-#   source = "./modules/deploy-cert-domains"
+# Deployment of <COMPONENT_NAME> using a static IP address and a plain cloud-init file
+######################################################################################
 
-#   depends_on = [ module.deploy-consul ]
+# resource "lxd_container" "<COMPONENT_NAME>" {
+#   remote     = var.host_id
+#   name       = join("-", [ var.host_id, local.project_id, "<COMPONENT_NAME>" ])
+#   image      = join("-", [ local.project_id, "<COMPONENT_NAME>", var.image_version ])
+#   profiles   = ["default"]
+  
+#   config = { 
+#     "security.privileged": "false"
+#     "user.user-data" = file("cloud-init/cloud-init-TEMPLATE.yml")
+#   }
+  
+#   # Provide eth0 interface with dynamic IP address
+#   device {
+#     name = "eth0"
+#     type = "nic"
+
+#     properties = {
+#       name           = "eth0"
+#       network        = var.host_id
+#     }
+#   }
+  
+#   # Mount container directory for persistent storage for grav user data
+#   device {
+#     name = "<NAME>"
+#     type = "disk"
+    
+#     properties = {
+#       source   = join("", [ "/var/containers/", local.project_id, "<SUBDIRECTORY>" ])
+#       path     = "<PATH>"
+#       readonly = "false"
+#       shift    = "true"
+#     }
+#   }
+# }
+
+
+# Deploy certbot configuration for project domain
+#################################################
+# module "deploy-<PROJECT_ID>-cert-domains" {
+#   source = "../../ryo-service-proxy/module-deployment/modules/deploy-cert-domains"
 
 #   certificate_domains = {
 #     domain_1 = {domain = local.project_domain_name, admin_email = local.project_admin_email},
@@ -14,150 +52,16 @@
 # }
 
 
-# Deployment of <COMPONENT_NAME> using a static IP address and a plain cloud-init file
-######################################################################################
-
-# module "deploy-<COMPONENT_NAME>" {
-#   source = "./modules/deploy-container-static-ip"
-
-#   depends_on = [ module.deploy-consul ]
-  
-#   lxd_remote                 = local.lxd_remote_name
-#   host_external_ipv4_address = local.lxd_host_public_ipv4_address
-#   container_image            = join("-", [ local.project_id, "COMPONENT_NAME", var.image_version ])
-#   container_name             = join("-", [ local.project_id, "COMPONENT_NAME" ])
-#   container_profiles         = ["default"]
-#   container_network          = local.project_id
-#   container_ipv4_address     = join(".", [ local.LXD_NETWORK_TO_USE, "10" ])
-
-#   container_cloud-init       = file("cloud-init/cloud-TEMPLATE.yml")
-
-#   # OPTIONAL PROXIES - THE FOLLOWING AS EXAMPLE
-#   container_proxies = [
-#     {name = "proxy0", protocol = "tcp", listen = "80", connect = "80"},
-#     {name = "proxy1", protocol = "tcp", listen = "443", connect = "443"},
-#   ]
-
-#   # OPTIONAL CONTAINER MOUNTS - THE FOLLOWING AS EXAMPLE
-#   container_mounts = [
-#     {name = "<NAME>", host_path = "/var/containers/<PROJECT_ID>/<SUBDIRECTORY>", mount_path = "<PATH>", mount_readonly = true}
-#   ]
-# }
-
-
-# Deployment of <COMPONENT NAME> using a static IP address and a cloud-init template file
-#########################################################################################
-
-# module "deploy-<COMPONENT_NAME>" {
-#   source = "./modules/deploy-container-static-ip"
-
-#   depends_on = [ module.deploy-consul ]
-
-#   lxd_remote                 = local.lxd_remote_name
-#   host_external_ipv4_address = local.lxd_host_public_ipv4_address
-#   container_image            = join("-", [ local.project_id, "COMPONENT_NAME", var.image_version ])
-#   container_name             = join("-", [ local.project_id, "COMPONENT_NAME" ])
-#   container_profiles         = ["default"]
-#   container_network          = local.project_id
-#   container_ipv4_address     = join(".", [ local.LXD_NETWORK_TO_USE, "10" ])
-
-#   container_cloud-init = templatefile(
-#     "cloud-init/cloud-init-<COMPONENT_NAME>.tpl.yml",
-#     {
-#       variable_to_pass    = local.VARIABLE_NAME,
-#       variable_to_pass    = local.VARIABLE_NAME
-#     })
-
-#   # OPTIONAL PROXIES - THE FOLLOWING AS EXAMPLE
-#   container_proxies = [
-#     {name = "proxy0", protocol = "tcp", listen = "80", connect = "80"},
-#     {name = "proxy1", protocol = "tcp", listen = "443", connect = "443"},
-#   ]
-
-#   # OPTIONAL CONTAINER MOUNTS - THE FOLLOWING AS EXAMPLE
-#   container_mounts = [
-#     {name = "<NAME>", host_path = "/var/containers/<PROJECT_ID>/<SUBDIRECTORY>", mount_path = "<PATH>", mount_readonly = true}
-#   ]
-# }
-
-
-# Deployment of <COMPONENT_NAME> using a dynamic IP address and a plain cloud-init file
-#######################################################################################
-
-# module "deploy-<COMPONENT_NAME>" {
-#   source = "./modules/deploy-container-dynamic-ip"
-
-#   depends_on = [ module.deploy-consul ]
-
-#   lxd_remote                 = local.lxd_remote_name
-#   container_image            = join("-", [ local.project_id, "COMPONENT_NAME", var.image_version ])
-#   container_name             = join("-", [ local.project_id, "COMPONENT_NAME" ])
-#   container_profiles         = ["default"]
-#   container_network          = local.project_id
-
-#   container_cloud-init       = file("cloud-init/cloud-TEMPLATE.yml")
-
-#   # OPTIONAL PROXIES - THE FOLLOWING AS EXAMPLE
-#   container_proxies = [
-#     {name = "proxy0", protocol = "tcp", listen = "80", connect = "80"},
-#     {name = "proxy1", protocol = "tcp", listen = "443", connect = "443"},
-#   ]
-
-#   # OPTIONAL CONTAINER MOUNTS - THE FOLLOWING AS EXAMPLE
-#   container_mounts = [
-#     {name = "<NAME>", host_path = "/var/containers/<PROJECT_ID>/<SUBDIRECTORY>", mount_path = "<PATH>", mount_readonly = true}
-#   ]
-# }
-
-
-# Deployment of <COMPONENT_NAME> using a dynamic IP address and a cloud-init template file
-#########################################################################################
-
-# module "deploy-<COMPONENT_NAME>" {
-#   source = "./modules/deploy-container-dynamic-ip"
-
-#   depends_on = [ module.deploy-consul ]
-
-#   lxd_remote                 = local.lxd_remote_name
-#   container_image            = join("-", [ local.project_id, "COMPONENT_NAME", var.image_version ])
-#   container_name             = join("-", [ local.project_id, "COMPONENT_NAME" ])
-#   container_profiles         = ["default"]
-#   container_network          = local.project_id
-
-#   container_cloud-init = templatefile(
-#     "cloud-init/cloud-init-<COMPONENT_NAME>.tpl.yml",
-#     {
-#       variable_to_pass    = local.VARIABLE_NAME,
-#       variable_to_pass    = local.VARIABLE_NAME
-#     })
-
-#   # OPTIONAL PROXIES - THE FOLLOWING AS EXAMPLE
-#   container_proxies = [
-#     {name = "proxy0", protocol = "tcp", listen = "80", connect = "80"},
-#     {name = "proxy1", protocol = "tcp", listen = "443", connect = "443"},
-#   ]
-
-#   # OPTIONAL CONTAINER MOUNTS - THE FOLLOWING AS EXAMPLE
-#   container_mounts = [
-#     {name = "<NAME>", host_path = "/var/containers/<PROJECT_ID>/<SUBDIRECTORY>", mount_path = "<PATH>", mount_readonly = true}
-#   ]
-# }
-
-
-# Deployment of load balancer / TLS proxy configuration for <COMPONENT_NAME>
-############################################################################
+# Deploy HAProxy configuration for <COMPONENT_NAME>
+###################################################
 
 # module "deploy-<PROJECT_ID>-haproxy-backend-service" {
-#   source = "./modules/deploy-haproxy-backend-services"
-
-#   depends_on = [ module.deploy-consul ]
-
-#   non_ssl_backend_services = [ join("-", [ local.project_id, "<SERVICE_NAME>" ]) ]
+#   source = "../../ryo-service-proxy/module-deployment/modules/deploy-haproxy-backend-services"
+#   non_ssl_backend_services = [ join("-", [ var.host_id, local.project_id, "<SERVICE_NAME>" ]) ]
 # }
 
-
 # module "deploy-<PROJECT_ID>-haproxy-acl-configuration" {
-#   source = "./modules/deploy-haproxy-configuration"
+#   source = "../../ryo-service-proxy/module-deployment/modules/deploy-haproxy-configuration"
 
 #   depends_on = [ module.deploy-<PROJECT_ID>-haproxy-backend-service ]
 
@@ -171,9 +75,8 @@
 #   }
 # }
 
-
 # module "deploy-<PROJECT_ID>-haproxy-backend-configuration" {
-#   source = "./modules/deploy-haproxy-configuration"
+#   source = "../../ryo-service-proxy/module-deployment/modules/deploy-haproxy-configuration"
 
 #   depends_on = [ module.deploy-<PROJECT_ID>-haproxy-backend-service ]
 
