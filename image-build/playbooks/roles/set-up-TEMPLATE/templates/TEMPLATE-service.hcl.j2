@@ -3,7 +3,7 @@
 ## MULTIPLE SERVICES CAN BE DEFINED IN MULTIPLE FILES 
 
 service {
-  name = "{{ project_id }}-TEMPLATE"
+  name = "{{ host_id }}-{{ project_id }}-TEMPLATE"
   tags = [ "TEMPLATE" ]
-  port = 80
+  port = SERVICE_PORT
 }
