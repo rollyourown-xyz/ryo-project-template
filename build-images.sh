@@ -67,9 +67,9 @@ fi
 
 # Project-specific image builds here..., for example
 #echo "Building webserver image on "$hostname""
-#echo "Executing command: packer build -var \"host_id="$hostname"\" -var \"grav_version=$grav_version\" -var \"version=$version\" "$SCRIPT_DIR"/image-build/webserver.pkr.hcl"
+#echo "Executing command: packer build -var \"host_id="$hostname"\" -var \"grav_version="$grav_version"\" -var \"version="$version"\" "$SCRIPT_DIR"/image-build/webserver.pkr.hcl"
 #echo ""
-#packer build -var "host_id="$hostname"" -var "grav_version=$grav_version" -var "version=$version" "$SCRIPT_DIR"/image-build/webserver.pkr.hcl
+#packer build -var "host_id="$hostname"" -var "grav_version="$grav_version"" -var "version="$version"" "$SCRIPT_DIR"/image-build/webserver.pkr.hcl
 #echo ""
 
 echo "Completed"
