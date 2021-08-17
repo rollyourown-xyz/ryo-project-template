@@ -5,7 +5,7 @@
 
 # resource "lxd_container" "<COMPONENT_NAME>" {
 #   remote     = var.host_id
-#   name       = join("-", [ var.host_id, local.project_id, "<COMPONENT_NAME>" ])
+#   name       = "<COMPONENT_NAME>"
 #   image      = join("-", [ local.project_id, "<COMPONENT_NAME>", var.image_version ])
 #   profiles   = ["default"]
   
