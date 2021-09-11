@@ -10,6 +10,7 @@
     - role: upgrade-container
     - role: install-iptables
     - role: install-consul
+    - role: set-up-consul
     # FURTHER ROLES DEPEND ON THE PROJECT
     - role: install-TEMPLATE
     - role: set-up-TEMPLATE
