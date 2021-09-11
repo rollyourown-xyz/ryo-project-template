@@ -29,9 +29,8 @@ $IPT -A INPUT -p udp -m udp --dport 8301 -j ACCEPT
 $IPT -A INPUT -p tcp -m tcp --dport 8301 -j ACCEPT
 
 
-## SPECIFIC PORTS FOR THE COMPONENT - THE FOLLOWING ARE EXAMPLES
-################################################################
+## <PROJECT> Rules
+##################
 
-# Allow HTTP and HTTPS
+# E.g. Allow HTTP
 $IPT -A INPUT -p tcp -m tcp --dport 80 -j ACCEPT
-$IPT -A INPUT -p tcp -m tcp --dport 443 -j ACCEPT
