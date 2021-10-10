@@ -3,12 +3,12 @@
 # Copy TEMPLATE-service consul service configuration file - modify TEMPLATE-service.hcl for this component's purpose
 #
 - name: Copy TEMPLATE-service consul service configuration file
-  template:
+  copy:
     mode: 0640
     owner: consul
     group: consul
     dest: /etc/consul.d/TEMPLATE-service.hcl
-    src: TEMPLATE-service.hcl.j2
+    src: TEMPLATE-service.hcl
     force: yes
 
 
