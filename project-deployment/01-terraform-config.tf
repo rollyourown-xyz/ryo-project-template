@@ -2,7 +2,7 @@
 # lxd provider will always be used
 #
 # consul provider is common to almost all project, to 
-# enable provisioning of the service proxy module
+# enable provisioning of the host consul service
 # Remove if not needed for this project 
 #####################################################
 
