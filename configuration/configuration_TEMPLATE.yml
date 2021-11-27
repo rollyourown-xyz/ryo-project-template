@@ -20,6 +20,9 @@ project_id: <PROJECT ID>
 # domain must be set to point to the public IPv4 address of your host server
 project_domain_name: <DOMAIN>
 
+# Enter a username for the administrator of this project, 
+project_admin_username: <USERNAME>
+
 # Enter an email address for the administrator of this project, 
 # this will be used for letsencrypt certificates
 project_admin_email: <EMAIL ADDRESS>
