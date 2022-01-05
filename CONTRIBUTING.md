@@ -18,7 +18,7 @@ For more information, see [our guide for raising security vulnerabilities](https
 
 Report a bug or suggest an improvement for this project template via the [Issues](https://rollyourown.xyz/collaborate/bug_reports_feature_requests_ideas/#where-to-raise-an-issue). Before submitting an issue, please search the existing issues in case the topic has already been addressed.
 
-In case of general feedback and ideas for rollyourown.xyz that are not specific to this or a different project or module, please use the Issues in the [general feedback repository on Codeberg](https://codeberg.org/rollyourown-xyz/general-feedback/issues) or [on Github](https://github.com/rollyourown-xyz/general-feedback/issues)
+In case of general feedback and ideas for rollyourown.xyz that are not specific to this or a different project or module, please use the Issues in the general feedback repository [on Codeberg](https://codeberg.org/rollyourown-xyz/general-feedback/issues) or [on GitHub](https://github.com/rollyourown-xyz/general-feedback/issues).
 
 Feedback to a different project or module should be submitted in the applicable repository.
 
