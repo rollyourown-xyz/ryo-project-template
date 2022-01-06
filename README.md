@@ -11,3 +11,5 @@ Clone this repository as a starting point for a new project and make the followi
 - Add Packer templates for each project component in the `image-build` directory
 - Add Ansible playbooks for each component in the `image-build/playbooks` directory with Ansible roles and tasks for the component in the `image-build/playbooks/roles/` directory
 - Add terraform files, cloud-init files and additional modules if necessary in the `project-deployment` directory
+- Modify the scripts in the `scripts-project` directory, if necessary
+- Modify the `build-images-project.sh` script to initiate the building of the project's container images
