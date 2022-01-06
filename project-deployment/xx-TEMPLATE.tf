@@ -43,7 +43,7 @@
 # Deploy certbot configuration for project domain
 #################################################
 # module "deploy-<PROJECT_ID>-cert-domains" {
-#   source = "../../ryo-service-proxy/module-deployment/modules/deploy-cert-domains"
+#   source = "../../ryo-ingress-proxy/module-deployment/modules/deploy-cert-domains"
 
 #   certificate_domains = {
 #     domain_1 = {domain = local.project_domain_name, admin_email = local.project_admin_email},
@@ -56,12 +56,12 @@
 ###################################################
 
 # module "deploy-<PROJECT_ID>-haproxy-backend-service" {
-#   source = "../../ryo-service-proxy/module-deployment/modules/deploy-haproxy-backend-services"
+#   source = "../../ryo-ingress-proxy/module-deployment/modules/deploy-haproxy-backend-services"
 #   non_ssl_backend_services = [ join("-", [ var.host_id, local.project_id, "<SERVICE_NAME>" ]) ]
 # }
 
 # module "deploy-<PROJECT_ID>-haproxy-acl-configuration" {
-#   source = "../../ryo-service-proxy/module-deployment/modules/deploy-haproxy-configuration"
+#   source = "../../ryo-ingress-proxy/module-deployment/modules/deploy-haproxy-configuration"
 
 #   depends_on = [ module.deploy-<PROJECT_ID>-haproxy-backend-service ]
 
@@ -76,7 +76,7 @@
 # }
 
 # module "deploy-<PROJECT_ID>-haproxy-backend-configuration" {
-#   source = "../../ryo-service-proxy/module-deployment/modules/deploy-haproxy-configuration"
+#   source = "../../ryo-ingress-proxy/module-deployment/modules/deploy-haproxy-configuration"
 
 #   depends_on = [ module.deploy-<PROJECT_ID>-haproxy-backend-service ]
 
