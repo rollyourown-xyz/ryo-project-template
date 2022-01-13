@@ -31,7 +31,7 @@
 #     type = "disk"
     
 #     properties = {
-#       source   = join("", [ "/var/containers/", local.project_id, "<SUBDIRECTORY>" ])
+#       source   = join("", [ "/var/containers/", local.project_id, "<COMPONENT>/<SUBDIRECTORY>" ])
 #       path     = "<PATH>"
 #       readonly = "false"
 #       shift    = "true"
@@ -52,42 +52,42 @@
 # }
 
 
-# Deploy HAProxy configuration for <COMPONENT_NAME>
-###################################################
+# Deploy Ingress Proxy configuration for <COMPONENT_NAME>
+#########################################################
 
-# module "deploy-<PROJECT_ID>-haproxy-backend-service" {
-#   source = "../../ryo-ingress-proxy/module-deployment/modules/deploy-haproxy-backend-services"
+# module "deploy-<PROJECT_ID>-ingress-proxy-backend-service" {
+#   source = "../../ryo-ingress-proxy/module-deployment/modules/deploy-ingress-proxy-backend-services"
 #   non_ssl_backend_services = [ join("-", [ var.host_id, local.project_id, "<SERVICE_NAME>" ]) ]
 # }
 
-# module "deploy-<PROJECT_ID>-haproxy-acl-configuration" {
-#   source = "../../ryo-ingress-proxy/module-deployment/modules/deploy-haproxy-configuration"
+# module "deploy-<PROJECT_ID>-ingress-proxy-acl-configuration" {
+#   source = "../../ryo-ingress-proxy/module-deployment/modules/deploy-ingress-proxy-configuration"
 
-#   depends_on = [ module.deploy-<PROJECT_ID>-haproxy-backend-service ]
+#   depends_on = [ module.deploy-<PROJECT_ID>-ingress-proxy-backend-service ]
 
-#   haproxy_host_only_acls = {
+#   ingress-proxy_host_only_acls = {
 #     domain     = {host = local.project_domain_name},
 #     domain-www = {host = join("", [ "www.", local.project_domain_name])}
 #   }
 
-#   haproxy_host_path_acls = {
+#   ingress-proxy_host_path_acls = {
 #     domain-admin = {host = local.project_domain_name, path = "/admin"},
 #   }
 # }
 
-# module "deploy-<PROJECT_ID>-haproxy-backend-configuration" {
-#   source = "../../ryo-ingress-proxy/module-deployment/modules/deploy-haproxy-configuration"
+# module "deploy-<PROJECT_ID>-ingress-proxy-backend-configuration" {
+#   source = "../../ryo-ingress-proxy/module-deployment/modules/deploy-ingress-proxy-configuration"
 
-#   depends_on = [ module.deploy-<PROJECT_ID>-haproxy-backend-service ]
+#   depends_on = [ module.deploy-<PROJECT_ID>-ingress-proxy-backend-service ]
 
-#   haproxy_acl_denys = [ "domain-admin" ]
+#   ingress-proxy_acl_denys = [ "domain-admin" ]
 
-#   haproxy_tcp_listeners = {
+#   ingress-proxy_tcp_listeners = {
 #     3022 = {backend_service = join("-", [ local.project_id, "<SERVICE_NAME>" ])},
 #     4022 = {backend_service = join("-", [ local.project_id, "<SERVICE_NAME>" ])}
 #   }
 
-#   haproxy_acl_use-backends = {
+#   ingress-proxy_acl_use-backends = {
 #     domain     = {backend_service = join("-", [ local.project_id, "<SERVICE_NAME>" ])},
 #     domain-www = {backend_service = join("-", [ local.project_id, "<SERVICE_NAME>" ])}
 #   }
