@@ -57,6 +57,9 @@
 
 # module "deploy-<PROJECT_ID>-ingress-proxy-backend-service" {
 #   source = "../../ryo-ingress-proxy/module-deployment/modules/deploy-ingress-proxy-backend-services"
+
+#   depends_on = [ lxd_container.<COMPONENT_NAME> ]
+
 #   non_ssl_backend_services = [ join("-", [ var.host_id, local.project_id, "<SERVICE_NAME>" ]) ]
 # }
 
