@@ -47,5 +47,9 @@ fi
 # lxc delete --force "$hostname":<CONTAINER>
 # echo ""
 
-# echo "Project container deleted"
+# echo "...deleting project container persistent storage"
+# ansible-playbook -i "$SCRIPT_DIR"/../../ryo-host/configuration/inventory_"$hostname" "$SCRIPT_DIR"/../backup-restore/delete-project-persistent-storage.yml --extra-vars "project_id="$PROJECT_ID" host_id="$hostname"
+# echo ""
+
+# echo "Project containers deleted"
 # echo ""
