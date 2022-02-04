@@ -63,6 +63,17 @@
 #   non_ssl_backend_services = [ join("-", [ var.host_id, local.project_id, "<SERVICE_NAME>" ]) ]
 # }
 
+# module "deploy-<PROJECT_ID>-ingress-proxy-listener-configuration" {
+#   source = "../../ryo-ingress-proxy/module-deployment/modules/deploy-ingress-proxy-configuration"
+
+#   depends_on = [ lxd_container.<COMPONENT_NAME> ]
+
+#   ingress-proxy_tcp_listeners = {
+#     3022 = {backend_service = join("-", [ local.project_id, "<SERVICE_NAME>" ])},
+#     4022 = {backend_service = join("-", [ local.project_id, "<SERVICE_NAME>" ])}
+#   }
+# }
+
 # module "deploy-<PROJECT_ID>-ingress-proxy-acl-configuration" {
 #   source = "../../ryo-ingress-proxy/module-deployment/modules/deploy-ingress-proxy-configuration"
 
@@ -78,17 +89,19 @@
 #   }
 # }
 
-# module "deploy-<PROJECT_ID>-ingress-proxy-backend-configuration" {
+# module "deploy-<PROJECT_ID>-ingress-proxy-deny-configuration" {
 #   source = "../../ryo-ingress-proxy/module-deployment/modules/deploy-ingress-proxy-configuration"
 
-#   depends_on = [ module.deploy-<PROJECT_ID>-ingress-proxy-backend-service ]
+#   depends_on = [ module.deploy-<PROJECT_ID>-ingress-proxy-backend-service, module.deploy-<PROJECT_ID>-ingress-proxy-acl-configuration ]
 
 #   ingress-proxy_acl_denys = [ "domain-admin" ]
 
-#   ingress-proxy_tcp_listeners = {
-#     3022 = {backend_service = join("-", [ local.project_id, "<SERVICE_NAME>" ])},
-#     4022 = {backend_service = join("-", [ local.project_id, "<SERVICE_NAME>" ])}
-#   }
+# }
+
+# module "deploy-<PROJECT_ID>-ingress-proxy-use-backend-configuration" {
+#   source = "../../ryo-ingress-proxy/module-deployment/modules/deploy-ingress-proxy-configuration"
+
+#   depends_on = [ module.deploy-<PROJECT_ID>-ingress-proxy-backend-service, module.deploy-<PROJECT_ID>-ingress-proxy-acl-configuration ]
 
 #   ingress-proxy_acl_use-backends = {
 #     domain     = {backend_service = join("-", [ local.project_id, "<SERVICE_NAME>" ])},
