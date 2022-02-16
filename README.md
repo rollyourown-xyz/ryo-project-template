@@ -97,6 +97,6 @@ Our preferred collaboration space is Codeberg:
 
 The primary repository for this project is hosted on our own Git repository server at:
 
-[https://git.rollyourown.xyz/ryo-projects/<PROJECT_NAME>](https://git.rollyourown.xyz/ryo-projects/<PROJECT_NAME>).
+- [https://git.rollyourown.xyz/ryo-projects/<PROJECT_NAME>](https://git.rollyourown.xyz/ryo-projects/<PROJECT_NAME>)
 
-**Repositories on our Git server are accessible only to members of our organisation**.
+**Repositories on our own Git server are accessible only to members of our organisation**.
