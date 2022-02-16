@@ -8,7 +8,7 @@ The general architecture of a rollyourown.xyz project is documented [here](https
 
 The structure of a rollyourown.xyz project (which this template provides) is documented [here](https://rollyourown.xyz/collaborate/project_and_module_development/project_structure/).
 
-## How to use this template
+## How to Use this Template
 
 Clone this repository as a starting point for a new project and make the following changes:
 
@@ -24,7 +24,9 @@ This template README can be used for the new project by deleting this part, chan
 
 ---
 
-## Project summary
+## Project Summary
+
+This project uses [Ansible](https://www.ansible.com/), [Packer](https://www.packer.io/) and [Terraform](https://www.terraform.io/) to deploy...
 
 _A short summary of the purpose of the project / module._
 
@@ -80,11 +82,11 @@ Issues for this project can be submitted on [Codeberg](https://codeberg.org/) (_
 - Issues on Codeberg: [here](https://codeberg.org/rollyourown-xyz/<PROJECT_NAME>/issues)
 - Issues on GitHub: [here](https://github.com/rollyourown-xyz/<PROJECT_NAME>/issues)
 
-## Security vulnerabilities
+## Security Vulnerabilities
 
 If you have found a security vulnerability in any [rollyourown.xyz](https://rollyourown.xyz/) service or any of the [rollyourown.xyz](https://rollyourown.xyz/) projects, modules or other repositories, please read our [security disclosure policy](https://rollyourown.xyz/collaborate/security_vulnerabilities/) and report this via our [security vulnerability report form](https://forms.rollyourown.xyz/security-vulnerability).
 
-## Repository links
+## Repository Links
 
 For public contributions, we maintain mirror repositories of this project on [Codeberg](https://codeberg.org) and [GitHub](https://github.com):
 
