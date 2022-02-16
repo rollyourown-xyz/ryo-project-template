@@ -24,6 +24,8 @@ This template README can be used for the new project by deleting this part, chan
 
 ---
 
+Deploy <PROJECT_PURPOSE> using Ansible, Packer and Terraform.
+
 ## Project Summary
 
 This project uses [Ansible](https://www.ansible.com/), [Packer](https://www.packer.io/) and [Terraform](https://www.terraform.io/) to deploy...
