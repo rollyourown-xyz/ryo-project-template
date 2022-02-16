@@ -95,4 +95,8 @@ Our preferred collaboration space is Codeberg:
 
 <a href="https://codeberg.org/rollyourown-xyz/<PROJECT_NAME>"><img alt="Get it on Codeberg" src="https://get-it-on.codeberg.org/get-it-on-blue-on-white.png" height="60"></a>
 
-The primary repository for this project is hosted on our own Git repository server at: [https://git.rollyourown.xyz/ryo-projects/<PROJECT_NAME>](https://git.rollyourown.xyz/ryo-projects/<PROJECT_NAME>). **Repositories on our Git server are accessible only to members of our organisation**.
+The primary repository for this project is hosted on our own Git repository server at:
+
+[https://git.rollyourown.xyz/ryo-projects/<PROJECT_NAME>](https://git.rollyourown.xyz/ryo-projects/<PROJECT_NAME>).
+
+**Repositories on our Git server are accessible only to members of our organisation**.
