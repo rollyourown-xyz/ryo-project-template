@@ -6,7 +6,7 @@ This is the template repository structure for a [rollyourown.xyz](https://rollyo
 
 The general architecture of a rollyourown.xyz project is documented [here](https://rollyourown.xyz/collaborate/project_and_module_development/general_architecture/)
 
-The structure of a rollyourown.xyz project (which this template provides) is documented [here](https://rollyourown.xyz/collaborate/project_and_module_development/project_structure/).
+The structure of a rollyourown.xyz project (which this template provides) is documented [here](https://rollyourown.xyz/collaborate/project_and_module_development/project_structure/)
 
 ## How to Use this Template
 
