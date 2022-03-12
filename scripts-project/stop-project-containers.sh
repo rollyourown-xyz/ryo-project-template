@@ -54,5 +54,5 @@ fi
 # lxc stop "$hostname":<CONTAINER>
 # echo ""
 
-# echo "Project container started"
+# echo "Project container stopped"
 # echo ""
