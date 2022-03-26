@@ -1,0 +1,11 @@
+/var/log/TEMPLATE.log {
+    daily
+    rotate {{ TEMPLATE_log_deletion }}
+    missingok
+    notifempty
+    compress
+    delaycompress
+    postrotate
+        /usr/lib/rsyslog/rsyslog-rotate
+    endscript
+}

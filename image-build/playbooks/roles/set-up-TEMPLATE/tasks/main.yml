@@ -15,4 +15,16 @@
     force: yes
 
 
+# Copy TEMPLATE log rotation and deletion configuration
+#
+- name: Copy TEMPLATE log rotation and deletion configuration
+  template:
+    mode: 0644
+    owner: root
+    group: root
+    dest: /etc/logrotate.d/TEMPLATE
+    src: logrotate_TEMPLATE.j2
+    force: yes
+
+
 ## FURTHER ANSIBLE TASKS FOR SETTING UP THE COMPONENT

@@ -30,3 +30,11 @@ project_admin_username: <USERNAME>
 # Enter an email address for the administrator of this project, 
 # this will be used for letsencrypt certificates
 project_admin_email: <EMAIL ADDRESS>
+
+
+#-------------------------------------------------
+# DEFAULT Configuration - change only if necessary
+#-------------------------------------------------
+
+# The number of days after which logs for TEMPLATE will be deleted
+TEMPLATE_log_deletion: 14
