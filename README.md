@@ -9,9 +9,16 @@ This is the template repository structure for a rollyourown project.
 
 ---
 
-The general architecture of a rollyourown.xyz project is documented [here](https://rollyourown.xyz/collaborate/project_and_module_development/general_architecture/)
+The general architecture of a rollyourown project is documented [here](https://rollyourown.xyz/collaborate/project_and_module_development/general_architecture/)
 
-The structure of a rollyourown.xyz project (which this template provides) is documented [here](https://rollyourown.xyz/collaborate/project_and_module_development/project_structure/)
+The structure of a rollyourown project (which this template provides) is documented [here](https://rollyourown.xyz/collaborate/project_and_module_development/project_structure/)
+
+## Contributing to this Template
+
+Issues for this project template can be submitted on [Codeberg](https://codeberg.org/) (_preferred_) or [GitHub](https://github.com/):
+
+- Issues on Codeberg: [here](https://codeberg.org/rollyourown-xyz/ryo-project-template/issues)
+- Issues on GitHub: [here](https://github.com/rollyourown-xyz/ryo-project-template/issues)
 
 ## How to Use this Template
 
@@ -29,7 +36,7 @@ This template README can be used for the new project by deleting this part, chan
 
 ---
 
-This is a [rollyourown.xyz project](https://rollyourown.xyz/rollyourown/projects/) to deploy <PROJECT_PURPOSE> using Ansible, Packer and Terraform.
+This is a [rollyourown project](https://rollyourown.xyz/rollyourown/projects/) to deploy <PROJECT_PURPOSE> using Ansible, Packer and Terraform.
 
 ## Project Summary
 
@@ -39,7 +46,7 @@ _A short summary of the purpose of the project / module._
 
 ## How to Use
 
-A detailed description of how to use a rollyourown.xyz project to deploy and maintain an open source solution can be found [on the rollyourown.xyz website](https://rollyourown.xyz/rollyourown/how_to_use/).
+A detailed description of how to use a rollyourown project to deploy and maintain an open source solution can be found [on the rollyourown website](https://rollyourown.xyz/rollyourown/how_to_use/).
 
 In summary, to deploy a project:
 
@@ -81,8 +88,8 @@ We would be delighted if you would like to contribute to rollyourown and there a
 You may also like to contribute to the wider rollyourown project by, for example:
 
 - [Contributing a new project or module](https://rollyourown.xyz/collaborate/new_projects_and_modules/)
-- [Contributing to the rollyourown.xyz website content](https://rollyourown.xyz/collaborate/website_content/) or [design](https://rollyourown.xyz/collaborate/website_design/)
-- [Maintaining a rollyourown.xyz repository](https://rollyourown.xyz/collaborate/working_with_git/what_is_git/#project-maintainer)
+- [Contributing to the rollyourown website content](https://rollyourown.xyz/collaborate/website_content/) or [design](https://rollyourown.xyz/collaborate/website_design/)
+- [Maintaining a rollyourown repository](https://rollyourown.xyz/collaborate/working_with_git/what_is_git/#project-maintainer)
 
 Issues for this project can be submitted on [Codeberg](https://codeberg.org/) (_preferred_) or [GitHub](https://github.com/):
 
