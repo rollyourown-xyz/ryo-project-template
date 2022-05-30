@@ -32,6 +32,15 @@ project_admin_username: <USERNAME>
 project_admin_email: <EMAIL ADDRESS>
 
 
+#-----------------------
+# Optional Configuration
+#-----------------------
+
+# Set this variable to true to build images on the remote host server. Otherwise,
+# images will be built on the control node and uploaded to the host server.
+remote_build: false
+
+
 #-------------------------------------------------
 # DEFAULT Configuration - change only if necessary
 #-------------------------------------------------
